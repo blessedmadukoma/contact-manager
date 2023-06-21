@@ -1,7 +1,6 @@
 const { constants } = require("../constants");
 
 const errorHandler = (err, req, res, next) => {
-  console.log("Error is: ", err);
   const statusCode = res.statusCode ? res.statusCode : 500;
 
   switch (statusCode) {
