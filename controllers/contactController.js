@@ -75,7 +75,10 @@ const deleteContact = asyncHandler(async (req, res) => {
   }
 
   await Contact.remove();
-  res.status(200).json({ messsage: `Delete contact for ${req.params.id}` });
+
+  res
+    .status(200)
+    .json({ messsage: `Contact deleted successfully!`, contact: contact });
 });
 
 module.exports = {
