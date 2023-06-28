@@ -12,6 +12,7 @@ const port = process.env.PORT || 4001;
 app
   .use(express.json())
   .use("/api/contacts", require("./routes/contactRoutes"))
+  .use("/api/users", require("./routes/userRoutes"))
   .use(errorHandler);
 // app.use(errorHandler);
 
