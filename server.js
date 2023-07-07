@@ -11,9 +11,9 @@ const port = process.env.PORT || 4001;
 
 app
   .use(express.json())
+  .use(errorHandler)
   .use("/api/contacts", require("./routes/contactRoutes"))
-  .use("/api/users", require("./routes/userRoutes"))
-  .use(errorHandler);
+  .use("/api/users", require("./routes/userRoutes"));
 // app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

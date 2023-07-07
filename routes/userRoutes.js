@@ -7,10 +7,10 @@ const {
 
 const router = express.Router();
 
-router.route("/register").post(registerUser);
+router.post("/register", registerUser);
 
-router.route("/login").post(loginUser);
+router.post("/login", loginUser);
 
-router.route("/current").get(currentUser);
+router.get("/current", currentUser);
 
 module.exports = router;
