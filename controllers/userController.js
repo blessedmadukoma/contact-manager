@@ -47,6 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
 //@access public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+
   if (!email || !password) {
     res.status(400);
     throw new Error("All fields are mandatory!");
@@ -69,6 +70,12 @@ const loginUser = asyncHandler(async (req, res) => {
         expiresIn: "5m",
       }
     );
+
+    res.status(200).json({
+      _id: user.id,
+      email: user.email,
+      accessToken,
+    });
   } else {
     res.status(401);
     throw new Error("Invalid email or password!");
